@@ -57,7 +57,7 @@
      ]},
     {"type": "image", "title": "位置示意圖",
      "items": [
-      {"alt": "位置示意圖", "image": "\/images\/location_guide.png"}
+      {"alt": "位置示意圖", "image": "images\/location_guide.png"}
      ]},
     {"type": "iframe", "title": "Google 地圖",
      "items": [
