@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>活動消息</title>
+  <link rel="stylesheet" href="style_index.css" />
+</head>
+<body>
+  <h1>活動消息</h1>
+
+  <!-- 圖片輪播區 -->
+  <div class="slider-wrap">
+    <div class="slider" id="slider">
+      <!-- JS 插入圖片卡片 -->
+    </div>
+  </div>
+
+  <!-- 切換標題（h2 當作按鈕） -->
+  <div class="tab-buttons">
+    <h2 onclick="showTab('tab-events')" id="tab-title-events" class="active">活動列表</h2>
+    <h2 onclick="showTab('tab-announcements')" id="tab-title-announcements">最新公告</h2>
+  </div>
+
+  <!-- 活動列表 -->
+  <div id="tab-events" class="tab-content active">
+    <ul id="event-list" class="event-list"></ul>
+  </div>
+
+  <!-- 最新公告 -->
+  <div class="tab-content" id="tab-announcements">
+    <ul id="announcement-list" class="event-list"></ul>
+  </div>
+  
+
+  <!-- 切換邏輯 -->
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-buttons h2').forEach(title => title.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      const titleId = 'tab-title-' + tabId.split('-')[1];
+      document.getElementById(titleId).classList.add('active');
+    }
+  </script>
+
+  <script src="render_index.js"></script>
+</body>
+</html>

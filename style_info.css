@@ -1,0 +1,101 @@
+:root {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --text-color: #e0e0e0;
+  --accent: #00bcd4;
+  --heading: #4dd0e1;
+  --border: #333;
+  --max-width: 800px;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 2rem;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* 水平置中整體內容 */
+}
+
+.wrapper {
+  width: 100%;
+  max-width: var(--max-width);
+}
+
+h1 {
+  font-size: 2.4rem; /* 放大標題 */
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+.content {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.section {
+  margin-bottom: 2rem;
+  text-align: left; /* 保持區塊內靠左 */
+}
+
+.section h3 {
+  color: var(--heading);
+  margin-bottom: 0.5rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-top: 0.5rem;
+}
+
+p {
+  margin: 0.3rem 0;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+}
+
+.responsive-iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #444;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .section h3 {
+    font-size: 1.1rem;
+  }
+}

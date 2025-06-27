@@ -1,0 +1,212 @@
+/* === 色彩定義 === */
+:root {
+  --label-color-new: #ff4d4d;
+  --label-color-open: #4caf50;
+  --label-color-expired: #aaaaaa;
+  --label-color-internal: #2ecc71;
+  --label-color-external: #e74c3c;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #121212;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+h1, h2 {
+  margin: 1rem;
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+a {
+  color: #66b2ff;
+  text-decoration: none;
+}
+a:hover {
+  color: var(--label-color-new);
+  text-decoration: underline;
+}
+
+/* === 輪播區域 === */
+.slider-wrap {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 10vw;
+  box-sizing: border-box;
+}
+.slider {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem;
+}
+.slide {
+  flex: 0 0 auto;
+  width: 75vw;
+  max-width: 280px;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1vw;
+}
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 210 / 297;
+  max-width: 280px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.05);
+  margin-bottom: 1.5rem;
+}
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* === 卡片標籤 === */
+.tag {
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid;
+  background-color: #1e1e1e;
+  display: inline-block;
+  white-space: nowrap;
+}
+.tag.new { color: var(--label-color-new); border-color: var(--label-color-new); }
+.tag.open { color: var(--label-color-open); border-color: var(--label-color-open); }
+.tag.expired { color: var(--label-color-expired); border-color: var(--label-color-expired); }
+
+/* === 活動 / 公告 共用列表樣式 === */
+.event-list, .announcement-list {
+  list-style: none;
+  padding: 0 1rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 1rem;
+  text-align: left;
+}
+.title {
+  flex: 2;
+}
+.date {
+  flex: 1;
+  font-size: 0.9em;
+  color: #999;
+  white-space: nowrap;
+}
+.label {
+  flex: 1;
+  font-size: 0.9em;
+  font-weight: bold;
+  white-space: nowrap;
+  text-align: left;
+}
+.label.new {
+  color: var(--label-color-new);
+  border: 1px solid var(--label-color-new);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.label.open {
+  color: var(--label-color-open);
+  border: 1px solid var(--label-color-open);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.label.expired {
+  color: var(--label-color-expired);
+  border: 1px solid var(--label-color-expired);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.label.internal {
+  color: var(--label-color-internal);
+  border: 1px solid var(--label-color-internal);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.label.external {
+  color: var(--label-color-external);
+  border: 1px solid var(--label-color-external);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.title a {
+  color: #cccccc;
+  text-decoration: none;
+  font-weight: 500;
+}
+.title a:hover {
+  color: var(--label-color-new);
+  text-decoration: underline;
+}
+
+/* === Tabs === */
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0 1rem 0;
+  border-bottom: 2px solid #333;
+}
+.tab-buttons h2 {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: normal;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s, font-weight 0.3s;
+}
+.tab-buttons h2.active {
+  font-weight: bold;
+  border-color: #f0f0f0;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+/* === RWD === */
+@media (min-width: 1025px) {
+  .slide {
+    width: 28vw;
+    max-width: 360px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .slide {
+    width: 38vw;
+    max-width: 340px;
+  }
+}
+@media (max-width: 768px) {
+  .slide {
+    width: 85vw;
+    max-width: 320px;
+  }
+  .tag {
+    font-size: 0.7rem;
+    padding: 3px 6px;
+  }
+}

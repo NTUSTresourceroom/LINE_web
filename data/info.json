@@ -1,0 +1,67 @@
+[
+  {"page_name": "教師聯絡資訊",
+   "content": [
+    {"type": "contact", "title": "張老師",
+     "items": [
+      {"text": "聯絡電話：02-2737-6310"},
+      {"text": "校內分機：6310"},
+      {"text": "Email：waiting103@mail.ntust.edu.tw", "link": "mailto:waiting103@mail.ntust.edu.tw"}
+     ]},
+    {"type": "contact", "title": "侯老師",
+     "items": [
+      {"text": "聯絡電話：02-2730-3270"},
+      {"text": "校內分機：3270"},
+      {"text": "Email：hou1223@mail.ntust.edu.tw", "link": "mailto:hou1223@mail.ntust.edu.tw"}
+     ]},
+    {"type": "contact", "title": "謝老師",
+     "items": [
+      {"text": "聯絡電話：02-2730-1250"},
+      {"text": "校內分機：1250"},
+      {"text": "Email：bluefish@mail.ntust.edu.tw", "link": "mailto:bluefish@mail.ntust.edu.tw"}
+     ]},
+    {"type": "contact", "title": "蔡老師",
+     "items": [
+      {"text": "聯絡電話：02-2730-3622"},
+      {"text": "校內分機：3622"},
+      {"text": "Email：tinghao211065@mail.ntust.edu.tw", "link": "mailto:tinghao211065@mail.ntust.edu.tw"}
+     ]}
+   ]},
+  {"page_name": "相關資訊",
+   "content": [
+    {"type": "image", "title": "無障礙設施位置圖",
+     "items": [
+      {"alt": "無障礙設施位置圖", "image": "https:\/\/student.ntust.edu.tw\/var\/file\/53\/1053\/img\/2609\/874062470.png"}
+     ]},
+    {"type": "link", "title": "資源教室網址",
+     "items": [
+      {"text": ">資源教室學校網址", "link": "https:\/\/student.ntust.edu.tw\/p\/412-1053-8272.php?Lang=zh-tw"}
+     ]},
+    {"type": "link", "title": "諮商預約系統",
+     "items": [
+      {"text": ">預約連結", "link": "https:\/\/sa.ntust.edu.tw\/WebCounseling\/Front_Index\/FrontIndex\/Index"}
+     ]},
+    {"type": "hotline", "title": "相關諮詢電話",
+     "items": [
+      {"text": "校安專線：0800-695-995"},
+      {"text": "安心專線：1925"},
+      {"text": "生命線：1995"},
+      {"text": "張老師：1980"},
+      {"text": "衛福部福利諮詢專線：1957"}
+     ]}
+   ]},
+  {"page_name": "資源教室所在位置",
+   "content": [
+    {"type": "text", "title": "樓層資訊",
+     "items": [
+      {"text": "學生活動中心 1F"}
+     ]},
+    {"type": "image", "title": "位置示意圖",
+     "items": [
+      {"alt": "位置示意圖", "image": "\/images\/location_guide.png"}
+     ]},
+    {"type": "iframe", "title": "Google 地圖",
+     "items": [
+      {"src": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d225.9746598511164!2d121.54247812754386!3d25.013889213974544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab48eb6908e9%3A0x97e87f39df6f85f7!2z5ZyL56uL6Ie654Gj56eR5oqA5aSn5a24IOWtuOWLmeiZlQ!5e0!3m2!1szh-TW!2stw!4v1750929003946!5m2!1szh-TW!2stw"}
+     ]}
+   ]}
+]
