@@ -88,7 +88,12 @@ p {
   border: 1px solid #444;
   border-radius: 8px;
   margin-top: 0.5rem;
+
+  pointer-events: auto;
+  z-index: 1;
+  position: relative;
 }
+
 
 /* 手機優化區塊 */
 @media (max-width: 600px) {
