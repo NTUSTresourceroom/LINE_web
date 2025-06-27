@@ -8,6 +8,10 @@
   --max-width: 800px;
 }
 
+html {
+  font-size: 16px; /* 根字體大小，rem 的依據 */
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: var(--bg-color);
@@ -15,7 +19,7 @@ body {
   padding: 2rem;
   margin: 0;
   display: flex;
-  justify-content: center; /* 水平置中整體內容 */
+  justify-content: center;
 }
 
 .wrapper {
@@ -24,7 +28,7 @@ body {
 }
 
 h1 {
-  font-size: 2.4rem; /* 放大標題 */
+  font-size: 2.4rem;
   margin-bottom: 1.5rem;
   color: var(--accent);
   border-bottom: 2px solid var(--border);
@@ -41,12 +45,13 @@ h1 {
 
 .section {
   margin-bottom: 2rem;
-  text-align: left; /* 保持區塊內靠左 */
+  text-align: left;
 }
 
 .section h3 {
   color: var(--heading);
   margin-bottom: 0.5rem;
+  font-size: 1.3rem;
 }
 
 a {
@@ -85,17 +90,26 @@ p {
   margin-top: 0.5rem;
 }
 
+/* 手機優化區塊 */
 @media (max-width: 600px) {
+  html {
+    font-size: 18px; /* 提高 rem 轉換後的字體大小 */
+  }
+
   body {
     padding: 1rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+  }
+
+  .content {
+    padding: 1rem;
   }
 
   .section h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 }

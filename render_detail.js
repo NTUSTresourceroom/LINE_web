@@ -6,6 +6,7 @@ function getQueryParam(param) {
 
 // 轉換日期格式
 function formatDateTime(str) {
+  if (!str) return '';
   const [yy, mm, dd, hm] = str.split('/');
   return `20${yy}年${mm}月${dd}日 ${hm}`;
 }
@@ -30,7 +31,6 @@ function setupFlipCard(event) {
   front.appendChild(img);
 
   const qrcode = document.createElement('div');
-  qrcode.id = 'qrcode';
   qrcode.style.width = '200px';
   qrcode.style.height = '200px';
   back.appendChild(qrcode);
@@ -39,10 +39,8 @@ function setupFlipCard(event) {
   inner.appendChild(back);
   container.appendChild(inner);
 
-  document.getElementById('detail-container').appendChild(container);
-
-  // 建立 QRCode 的函數
-  function generateQRCode() {
+  // 點擊圖片生成 QRCode
+  img.addEventListener('click', () => {
     container.classList.add('flipped');
     qrcode.innerHTML = '';
     new QRCode(qrcode, {
@@ -53,56 +51,71 @@ function setupFlipCard(event) {
       colorLight: '#ffffff',
       correctLevel: QRCode.CorrectLevel.H
     });
-  }
+  });
 
-  // === 單擊圖片觸發翻轉 ===
-  img.addEventListener('click', generateQRCode);
-
-  // 點擊 QR code 翻回圖片
+  // 點 QRCode 回到圖片
   back.addEventListener('click', () => {
     container.classList.remove('flipped');
   });
+
+  return container;
 }
 
-// 讀取資料並顯示
+// 主流程
 const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
-fetch(`${basePath}/data/events.json`)
+const type = getQueryParam('type') || 'event';
+const dataFile = type === 'announcement' ? 'announcements.json' : 'events.json';
+
+fetch(`${basePath}/data/${dataFile}`)
   .then(res => res.json())
   .then(data => {
     const id = getQueryParam('id');
-    const event = data.find(e => e.id === id);
+    const item = data.find(e => e.id === id);
 
-    if (!event) {
-      document.getElementById('detail-container').innerHTML = '<p>找不到活動資料。</p>';
+    const container = document.getElementById('detail-container');
+    if (!item) {
+      container.innerHTML = '<p>找不到資料。</p>';
       return;
     }
 
-    document.title = event.title;
+    document.title = item.title;
 
-    const html = `
-      <h1>${event.title}</h1>
-      <table>
-        <tr><th>活動標籤</th><td>${event.label}</td></tr>
-        <tr><th>活動開始</th><td>${formatDateTime(event.start)}</td></tr>
-        <tr><th>活動結束</th><td>${formatDateTime(event.end)}</td></tr>
-        <tr><th>截止時間</th><td>${formatDateTime(event.deadline)}</td></tr>
-        <tr><th>活動地點</th><td>${event.location}</td></tr>
-        <tr><th>負責講師</th><td>${event.speaker}</td></tr>
-        <tr><th>承辦人員</th><td>${event.host}</td></tr>
-        <tr><th>聯絡信箱</th><td><a href="mailto:${event.email}">${event.email}</a></td></tr>
-        <tr><th>聯絡電話</th><td><a href="tel:${event.phone}">${event.phone}</a></td></tr>
-        <tr><th>參與對象</th><td>${event.target}</td></tr>
-        <tr><th>活動說明</th><td>${event.description.replace(/\n/g, '<br>')}</td></tr>
-        <tr><th>報名連結</th><td><a href="${event.link}" target="_blank">${event.link}</a></td></tr>
-      </table>
-    `;
+    let html = `<h1>${item.title}</h1><table>`;
 
-    document.getElementById('detail-container').innerHTML = html;
+    if (type === 'event') {
+      html += `
+        <tr><th>活動標籤</th><td>${item.label || ''}</td></tr>
+        <tr><th>活動開始</th><td>${formatDateTime(item.start)}</td></tr>
+        <tr><th>活動結束</th><td>${formatDateTime(item.end)}</td></tr>
+        <tr><th>截止時間</th><td>${formatDateTime(item.deadline)}</td></tr>
+        <tr><th>活動地點</th><td>${item.location || ''}</td></tr>
+        <tr><th>負責講師</th><td>${item.speaker || ''}</td></tr>
+        <tr><th>承辦人員</th><td>${item.host || ''}</td></tr>
+        <tr><th>聯絡信箱</th><td>${item.email ? `<a href="mailto:${item.email}">${item.email}</a>` : ''}</td></tr>
+        <tr><th>聯絡電話</th><td>${item.phone ? `<a href="tel:${item.phone}">${item.phone}</a>` : ''}</td></tr>
+        <tr><th>參與對象</th><td>${item.target || ''}</td></tr>
+        <tr><th>活動說明</th><td>${(item.description || '').replace(/\n/g, '<br>')}</td></tr>
+        <tr><th>報名連結</th><td>${item.link ? `<a href="${item.link}" target="_blank" rel="noopener">${item.link}</a>` : ''}</td></tr>
+      `;
+    } else if (type === 'announcement') {
+      html += `
+        <tr><th>公告標籤</th><td>${item.label || ''}</td></tr>
+        <tr><th>發布對象</th><td>${item.target || ''}</td></tr>
+        <tr><th>公告內容</th><td>${(item.description || '').replace(/\n/g, '<br>')}</td></tr>
+        <tr><th>備註</th><td>${(item.note || '').replace(/\n/g, '<br>')}</td></tr>
+        <tr><th>相關連結</th><td>${item.link ? `<a href="${item.link}" target="_blank" rel="noopener">${item.link}</a>` : ''}</td></tr>
+      `;
+    }
 
-    // 插入圖片卡片並啟用翻面功能
-    setupFlipCard(event);
+    html += '</table>';
+    container.innerHTML = html;
+
+    if (type === 'event' && item.cover) {
+      const flipCard = setupFlipCard(item);
+      container.appendChild(flipCard);
+    }
   })
   .catch(error => {
-    console.error('載入活動資料失敗:', error);
+    console.error('載入資料失敗:', error);
     document.getElementById('detail-container').innerHTML = '<p>資料載入失敗。</p>';
   });

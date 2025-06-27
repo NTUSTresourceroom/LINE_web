@@ -14,6 +14,13 @@ function formatDateOnly(str) {
   return `${mm}/${dd}（${wday}）`;
 }
 
+function getStatusClass(label) {
+  if (label === '新') return 'new';
+  if (label === '報名中') return 'open';
+  if (label === '已過期') return 'expired';
+  return '';
+}
+
 // === 活動 ===
 fetch(`${basePath}/data/events.json`)
   .then(response => response.json())
@@ -30,13 +37,6 @@ fetch(`${basePath}/data/events.json`)
       return new Date(`${yyyy}-${mm}-${dd}T${hh}:${min}:00`).getTime();
     }
 
-    function getStatusClass(label) {
-      if (label === '新') return 'new';
-      if (label === '報名中') return 'open';
-      if (label === '已過期') return 'expired';
-      return '';
-    }
-
     data.sort((a, b) => {
       const timeA = parseStartTime(a.start);
       const timeB = parseStartTime(b.start);
@@ -46,6 +46,7 @@ fetch(`${basePath}/data/events.json`)
 
     data.forEach((event, i) => {
       const eventId = encodeURIComponent(event.id || i);
+      const type = 'event';
 
       // Slide card
       const img = new Image();
@@ -59,7 +60,7 @@ fetch(`${basePath}/data/events.json`)
       wrapper.className = 'image-wrapper';
 
       const link = document.createElement('a');
-      link.href = `detail.html?id=${eventId}`;
+      link.href = `detail.html?id=${eventId}&type=${type}`;
       link.appendChild(img);
       wrapper.appendChild(link);
 
@@ -76,7 +77,9 @@ fetch(`${basePath}/data/events.json`)
       li.className = 'row';
 
       li.innerHTML = `
-        <div class="title"><a href="detail.html?id=${eventId}">${event.title}</a></div>
+        <div class="title">
+          <a href="detail.html?id=${eventId}&type=${type}">${event.title}</a>
+        </div>
         <div class="date">${formatDateOnly(event.start)}</div>
         <div class="label ${getStatusClass(event.label)}">${event.label}</div>
       `;
@@ -104,18 +107,16 @@ fetch(`${basePath}/data/announcements.json`)
 
     data.forEach((item, i) => {
       const annId = encodeURIComponent(item.id || i);
-
       const li = document.createElement('li');
       li.className = 'row';
-
+    
       const labelClass =
         item.label === '校內' ? 'internal' :
         item.label === '校外' ? 'external' : '';
-
-      const titleHTML = item.link
-        ? `<a href="${item.link}" target="_blank" rel="noopener">${item.title}</a>`
-        : item.title;
-
+    
+      // 統一內頁連結（不分是否有 link）
+      const titleHTML = `<a href="detail.html?id=${annId}&type=announcement">${item.title}</a>`;
+    
       li.innerHTML = `
         <div class="title">${titleHTML}</div>
         <div class="date">${formatDateOnly(item.start)}</div>
@@ -123,5 +124,6 @@ fetch(`${basePath}/data/announcements.json`)
       `;
       list.appendChild(li);
     });
+    
   })
   .catch(error => console.error('載入公告資料失敗：', error));
