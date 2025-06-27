@@ -1,13 +1,13 @@
 # NTUST 資源教室活動網站
 
 ## 網址
-主頁：https://dreamakerchao.github.io/act_TEST
+主頁：https://NTUSTresourceroom.github.io/act_TEST
 
-聯絡：https://dreamakerchao.github.io/act_TEST/info.html?page=教師聯絡資訊
+聯絡：https://NTUSTresourceroom.github.io/act_TEST/info.html?page=教師聯絡資訊
 
-位置：https://dreamakerchao.github.io/act_TEST/info.html?page=資源教室所在位置
+位置：https://NTUSTresourceroom.github.io/act_TEST/info.html?page=資源教室所在位置
 
-相關：https://dreamakerchao.github.io/act_TEST/info.html?page=相關資訊
+相關：https://NTUSTresourceroom.github.io/act_TEST/info.html?page=相關資訊
 
 
 這是一個使用 GitHub Pages 建立的靜態網站，提供以下功能：
