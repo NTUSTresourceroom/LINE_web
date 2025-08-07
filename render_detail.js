@@ -80,7 +80,7 @@ fetch(`${basePath}/data/${dataFile}`)
 
     document.title = item.title;
 
-    let html = `<h1>${item.title}</h1><table>`;
+    let html = `<h1>~ ${item.title} ~</h1><table>`;
 
     if (type === 'event') {
       html += `
