@@ -110,6 +110,13 @@ fetch(`${basePath}/data/${dataFile}`)
     html += '</table>';
     container.innerHTML = html;
 
+    html += `
+      <div style="text-align:center; font-weight:bold; font-size:18px; margin: 16px 0;">
+        點選圖片分享此頁面 QR code
+      </div>
+    `;
+
+
     if (type === 'event' && item.cover) {
       const flipCard = setupFlipCard(item);
       container.appendChild(flipCard);
