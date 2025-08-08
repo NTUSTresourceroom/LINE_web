@@ -117,7 +117,7 @@ a:hover {
   font-size: 0.9em;
   font-weight: bold;
   white-space: nowrap;
-  text-align: left;
+  text-align: center;
 }
 .label.new {
   color: var(--label-color-new);

@@ -85,9 +85,9 @@ fetch(`${basePath}/data/${dataFile}`)
     if (type === 'event') {
       html += `
         <tr><th>活動標籤</th><td>${item.label || ''}</td></tr>
-        <tr><th>活動開始</th><td>${formatDateTime(item.start)}</td></tr>
-        <tr><th>活動結束</th><td>${formatDateTime(item.end)}</td></tr>
-        <tr><th>截止時間</th><td>${formatDateTime(item.deadline)}</td></tr>
+        <tr><th>活動開始</th><td style="color: #66b2ff;">${formatDateTime(item.start)}</td></tr>
+        <tr><th>活動結束</th><td style="color:#209751;">${formatDateTime(item.end)}</td></tr>
+        <tr><th>截止時間</th><td style="color: #e74c3c;">${formatDateTime(item.deadline)}</td></tr>
         <tr><th>活動地點</th><td>${item.location || ''}</td></tr>
         <tr><th>負責講師</th><td>${item.speaker || ''}</td></tr>
         <tr><th>承辦人員</th><td>${item.host || ''}</td></tr>
