@@ -47,6 +47,10 @@
       {"text": "生命線：1995"},
       {"text": "張老師：1980"},
       {"text": "衛福部福利諮詢專線：1957"}
+     ]},
+    {"type": "link", "title": "學校行事曆",
+     "items": [
+      {"link": "https:\/\/view.officeapps.live.com\/op\/view.aspx?src=https%3A%2F%2Fwww.academic.ntust.edu.tw%2Fvar%2Ffile%2F48%2F1048%2Fimg%2F321581819.xlsx&wdOrigin=BROWSELINK"}
      ]}
    ]},
   {"page_name": "資源教室所在位置",
@@ -61,7 +65,7 @@
      ]},
     {"type": "iframe", "title": "Google 地圖",
      "items": [
-      {"src": "https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d225.9746598511164!2d121.54247812754386!3d25.013889213974544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab48eb6908e9%3A0x97e87f39df6f85f7!2z5ZyL56uL6Ie654Gj56eR5oqA5aSn5a24IOWtuOWLmeiZlQ!5e0!3m2!1szh-TW!2stw!4v1750929003946!5m2!1szh-TW!2stw"}
+      {}
      ]}
    ]}
 ]
