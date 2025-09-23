@@ -36,7 +36,7 @@ a:hover {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding: 1rem 5vw;
+  padding: 1rem 1vw;
   box-sizing: border-box;
 }
 .slider {
