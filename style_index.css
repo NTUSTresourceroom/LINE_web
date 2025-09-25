@@ -41,7 +41,7 @@ a:hover {
 }
 .slider {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   padding-right: 1rem;
 }
 .slide {
@@ -52,7 +52,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 1vw;
+  margin: 0 0.5vw;
 }
 .image-wrapper {
   position: relative;
