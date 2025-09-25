@@ -72,16 +72,7 @@ async function loadData() {
           div.appendChild(img);
         }
 
-        else if (section.type === 'iframe') {
-          const iframe = document.createElement('iframe');
-          iframe.src = item.src;
-          iframe.setAttribute('frameborder', '0');
-          iframe.setAttribute('allowfullscreen', '');
-          iframe.setAttribute('loading', 'lazy');
-          iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
-          iframe.classList.add('responsive-iframe');
-          div.appendChild(iframe);
-        }
+
       });
 
       container.appendChild(div);

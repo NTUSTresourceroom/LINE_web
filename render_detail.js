@@ -95,6 +95,7 @@ fetch(`${basePath}/data/${dataFile}`)
         <tr><th>聯絡電話</th><td>${item.phone ? `<a href="tel:${item.phone}">${item.phone}</a>` : ''}</td></tr>
         <tr><th>參與對象</th><td>${item.target || ''}</td></tr>
         <tr><th>活動說明</th><td>${(item.description || '').replace(/\n/g, '<br>')}</td></tr>
+        <tr><th>  備註  </th><td>${(item.note || '').replace(/\n/g, '<br>')}</td></tr>
         <tr><th>報名連結</th><td>${item.link ? `<a href="${item.link}" target="_blank" rel="noopener">${item.link}</a>` : ''}</td></tr>
       `;
     } else if (type === 'announcement') {
@@ -102,7 +103,7 @@ fetch(`${basePath}/data/${dataFile}`)
         <tr><th>公告標籤</th><td>${item.label || ''}</td></tr>
         <tr><th>發布對象</th><td>${item.target || ''}</td></tr>
         <tr><th>公告內容</th><td>${(item.description || '').replace(/\n/g, '<br>')}</td></tr>
-        <tr><th>備註</th><td>${(item.note || '').replace(/\n/g, '<br>')}</td></tr>
+        <tr><th>  備註  </th><td>${(item.note || '').replace(/\n/g, '<br>')}</td></tr>
         <tr><th>相關連結</th><td>${item.link ? `<a href="${item.link}" target="_blank" rel="noopener">${item.link}</a>` : ''}</td></tr>
       `;
     }
