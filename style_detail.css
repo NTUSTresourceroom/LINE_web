@@ -28,6 +28,9 @@ h1 {
   margin: 1rem;
   font-size: 1.8rem;
   color: #ffffff;
+  overflow-wrap: break-word;  /* 允許長字自動斷行 */
+  word-break: break-word;     /* 避免超出容器 */
+  white-space: normal;        /* 允許換行 */
 }
 
 /* 表格樣式（自適應寬度） */
