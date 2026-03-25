@@ -38,10 +38,23 @@ fetch(`${basePath}/data/events.json`)
     }
 
     data.sort((a, b) => {
+      const isExpiredA = a.label === '已過期';
+      const isExpiredB = b.label === '已過期';
+
+      if (isExpiredA !== isExpiredB) {
+        return isExpiredA ? 1 : -1;
+      }
+
       const timeA = parseStartTime(a.start);
       const timeB = parseStartTime(b.start);
+
       if (timeA !== timeB) return timeB - timeA;
-      return String(a.id ?? '').localeCompare(String(b.id ?? ''), 'zh-Hant', { numeric: true });
+
+      return String(a.id ?? '').localeCompare(
+        String(b.id ?? ''),
+        'zh-Hant',
+        { numeric: true }
+      );
     });
 
     data.forEach((event, i) => {
