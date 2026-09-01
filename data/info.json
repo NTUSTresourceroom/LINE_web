@@ -19,11 +19,17 @@
       {"text": "校內分機：1250"},
       {"text": "Email：bluefish@mail.ntust.edu.tw", "link": "mailto:bluefish@mail.ntust.edu.tw"}
      ]},
-    {"type": "contact", "title": "蔡老師",
+    {"type": "contact", "title": "羅老師",
+     "items": [
+      {"text": "聯絡電話：02-2730-3729"},
+      {"text": "校內分機：3729"},
+      {"text": "Email：weitzu@mail.ntust.edu.tw", "link": "mailto:tinghao211065@mail.ntust.edu.tw"}
+     ]}
+     {"type": "contact", "title": "胡老師",
      "items": [
       {"text": "聯絡電話：02-2730-3622"},
       {"text": "校內分機：3622"},
-      {"text": "Email：tinghao211065@mail.ntust.edu.tw", "link": "mailto:tinghao211065@mail.ntust.edu.tw"}
+      {"text": "Email：huhuat@mail.ntust.edu.tw", "link": "mailto:tinghao211065@mail.ntust.edu.tw"}
      ]}
    ]},
   {"page_name": "相關資訊",
