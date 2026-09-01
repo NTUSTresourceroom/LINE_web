@@ -19,11 +19,17 @@
       {"text": "校內分機：1250"},
       {"text": "Email：bluefish@mail.ntust.edu.tw", "link": "mailto:bluefish@mail.ntust.edu.tw"}
      ]},
-    {"type": "contact", "title": "蔡老師",
+    {"type": "contact", "title": "胡老師",
      "items": [
       {"text": "聯絡電話：02-2730-3622"},
       {"text": "校內分機：3622"},
-      {"text": "Email：tinghao211065@mail.ntust.edu.tw", "link": "mailto:tinghao211065@mail.ntust.edu.tw"}
+      {"text": "Email：huhuat@mail.ntust.edu.tw", "link": "mailto:tinghao211065@mail.ntust.edu.tw"}
+     ]},
+    {"type": "contact", "title": "羅老師",
+     "items": [
+      {"text": "聯絡電話：02-2730-3729"},
+      {"text": "校內分機：3729"},
+      {"text": "Email：weitzu@mail.ntust.edu.tw", "link": "mailto:tinghao211065@mail.ntust.edu.tw"}
      ]}
    ]},
   {"page_name": "相關資訊",
@@ -65,7 +71,7 @@
      ]},
     {"type": "iframe", "title": "Google 地圖",
      "items": [
-      {"src": "<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d225.97471251739455!2d121.5426743716691!3d25.0138605953737!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442ab48eb6908e9%3A0x97e87f39df6f85f7!2z5ZyL56uL6Ie654Gj56eR5oqA5aSn5a24IOWtuOWLmeiZlQ!5e0!3m2!1szh-TW!2stw!4v1758608498014!5m2!1szh-TW!2stw\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>"}
+      {}
      ]}
    ]}
 ]
