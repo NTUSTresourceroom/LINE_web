@@ -21,6 +21,27 @@ function getStatusClass(label) {
   return '';
 }
 
+// 解析 yy/mm/dd 或 yy/mm/dd/hh:mm
+// 沒有時間時視為當天 23:59:59，當天內不算過期
+function parseDateTime(str) {
+  if (!str) return null;
+  const parts = str.split('/');
+  if (parts.length < 3) return null;
+  const [yy, mm, dd] = parts;
+  const yyyy = 2000 + parseInt(yy, 10);
+  if (parts[3]) {
+    const [hh, min] = parts[3].split(':');
+    return new Date(yyyy, mm - 1, dd, hh, min || 0);
+  }
+  return new Date(yyyy, mm - 1, dd, 23, 59, 59);
+}
+
+// 有 end 就用 end 判斷，沒有就用 start
+function isExpired(item) {
+  const d = parseDateTime(item.end || item.start);
+  return d ? d.getTime() < Date.now() : false;
+}
+
 // === 活動 ===
 fetch(`${basePath}/data/events.json`)
   .then(response => response.json())
@@ -36,6 +57,10 @@ fetch(`${basePath}/data/events.json`)
       const yyyy = 2000 + parseInt(yy, 10);
       return new Date(`${yyyy}-${mm}-${dd}T${hh}:${min}:00`).getTime();
     }
+
+    data.forEach(event => {
+      if (isExpired(event)) event.label = '已過期';
+    });
 
     data.sort((a, b) => {
       const isExpiredA = a.label === '已過期';
@@ -122,10 +147,15 @@ fetch(`${basePath}/data/announcements.json`)
       const annId = encodeURIComponent(item.id || i);
       const li = document.createElement('li');
       li.className = 'row';
-    
+
+      const expired = isExpired(item);
+
       const labelClass =
+        expired ? 'expired' :
         item.label === '校內' ? 'internal' :
         item.label === '校外' ? 'external' : '';
+
+      const labelText = expired ? '已過期' : item.label;
     
       // 統一內頁連結（不分是否有 link）
       const titleHTML = `<a href="detail.html?id=${annId}&type=announcement">${item.title}</a>`;
@@ -133,7 +163,7 @@ fetch(`${basePath}/data/announcements.json`)
       li.innerHTML = `
         <div class="title">${titleHTML}</div>
         <div class="date">${formatDateOnly(item.start)}</div>
-        <div class="label ${labelClass}">${item.label}</div>
+        <div class="label ${labelClass}">${labelText}</div>
       `;
       list.appendChild(li);
     });
